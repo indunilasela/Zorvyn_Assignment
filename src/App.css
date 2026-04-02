@@ -1,7 +1,7 @@
 .dashboard-shell {
-  width: min(1080px, calc(100% - 16px));
+  width: min(1180px, calc(100% - 24px));
   margin: 0 auto;
-  padding: clamp(10px, 2vw, 20px) 0 clamp(18px, 3vw, 32px);
+  padding: clamp(10px, 2vw, 22px) 0 clamp(18px, 3vw, 34px);
 }
 
 .top-nav {
@@ -77,7 +77,7 @@
 
 .hero-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.95fr);
   gap: 14px;
   margin-bottom: 14px;
   align-items: stretch;
@@ -399,7 +399,7 @@
 
 .content-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.9fr);
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.92fr);
   gap: 14px;
 }
 
@@ -701,6 +701,38 @@
   text-align: center;
 }
 
+@media (min-width: 1440px) {
+  .dashboard-shell {
+    width: min(1320px, calc(100% - 40px));
+  }
+
+  .summary-card {
+    min-height: 116px;
+  }
+
+  .chart-card,
+  .transactions-card,
+  .insight-card,
+  .admin-card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .dashboard-shell {
+    width: min(1120px, calc(100% - 24px));
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .side-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
 @media (max-width: 1080px) {
   .top-nav {
     position: static;
@@ -721,15 +753,20 @@
   }
 
   .summary-grid,
-  .content-grid,
-  .hero-panel,
   .two-column-chart,
-  .donut-wrap,
-  .filters-row {
+  .donut-wrap {
     grid-template-columns: 1fr;
   }
 
   .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-panel {
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.9fr);
+  }
+
+  .filters-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -750,6 +787,22 @@
 
   .donut {
     width: min(220px, 100%);
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-panel,
+  .side-column,
+  .filters-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section-actions {
+    width: 100%;
+  }
+
+  .section-actions button {
+    width: 100%;
   }
 }
 
@@ -796,6 +849,10 @@
 @media (max-width: 780px) {
   .top-nav {
     padding: 12px 14px;
+  }
+
+  .dashboard-shell {
+    width: min(100%, calc(100% - 16px));
   }
 
   .nav-right {
@@ -903,6 +960,10 @@
     grid-template-columns: 1fr;
   }
 
+  .line-chart-wrap {
+    margin-inline: -2px;
+  }
+
   .transaction-actions {
     flex-direction: column;
   }
@@ -958,5 +1019,38 @@
   .transaction-row p,
   .viewer-note {
     font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .dashboard-shell {
+    width: min(100%, calc(100% - 10px));
+  }
+
+  .top-nav,
+  .hero-copy,
+  .hero-controls,
+  .chart-card,
+  .transactions-card,
+  .insight-card,
+  .admin-card,
+  .summary-card,
+  .mini-stat,
+  .read-only-panel,
+  .empty-state,
+  .card-soft {
+    border-radius: 14px;
+    padding: 12px;
+  }
+
+  .nav-links a,
+  .transaction-actions button,
+  .form-actions button,
+  .section-actions button {
+    font-size: 0.9rem;
+  }
+
+  .line-chart {
+    min-width: 360px;
   }
 }
